@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#f5f2e9">
+<title>Aung Healthy Life</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+  --cream:#f5f2e9;
+  --cream2:#ebe7db;
+  --white:#fffdf8;
+  --green:#6f8f72;
+  --green-dark:#294d38;
+  --green-light:#dce7d9;
+  --peach:#f1c9ae;
+  --peach-light:#f8e4d5;
+  --yellow:#e8d79c;
+  --text:#26352c;
+  --muted:#7c887f;
+  --border:rgba(41,77,56,.09);
+  --shadow:0 12px 35px rgba(41,77,56,.08);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    Arial,
+    "Noto Sans Myanmar",
+    "Myanmar Text",
+    sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.app{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  margin:auto;
+  padding-bottom:105px;
+}
+
+/* TOP */
+.top{
+  padding:28px 20px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.greeting small{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:5px;
+  letter-spacing:.3px;
+}
+
+.greeting h1{
+  font-size:23px;
+  line-height:1.25;
+  color:var(--green-dark);
+  font-weight:800;
+}
+
+.profile-btn{
+  width:48px;
+  height:48px;
+  border-radius:18px;
+  background:var(--green-dark);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  box-shadow:0 8px 20px rgba(41,77,56,.18);
+}
+
+/* HERO */
+.hero{
+  margin:15px 20px 18px;
+  padding:23px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.35),transparent 28%),
+    linear-gradient(135deg,#dce7d9,#cbdcc9);
+  position:relative;
+  overflow:hidden;
+  min-height:215px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  right:-65px;
+  bottom:-75px;
+  background:rgba(255,255,255,.22);
+}
+
+.hero-top{
+  position:relative;
+  z-index:2;
+}
+
+.hero-label{
+  font-size:12px;
+  color:#496451;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+
+.hero-title{
+  margin-top:7px;
+  font-size:25px;
+  font-weight:800;
+  color:var(--green-dark);
+}
+
+.hero-sub{
+  margin-top:5px;
+  color:#607267;
+  font-size:13px;
+}
+
+.score-wrap{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-top:20px;
+  position:relative;
+  z-index:2;
+}
+
+.score-ring{
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  background:
+    conic-gradient(var(--green-dark) 0 82%,rgba(255,255,255,.45) 82% 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.score-ring:before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  background:#d5e2d2;
+  border-radius:50%;
+}
+
+.score-number{
+  position:relative;
+  z-index:2;
+  font-size:21px;
+  font-weight:900;
+  color:var(--green-dark);
+}
+
+.score-info strong{
+  display:block;
+  font-size:15px;
+  color:var(--green-dark);
+}
+
+.score-info span{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  color:#637269;
+}
+
+/* SECTION */
+.section{
+  padding:0 20px;
+  margin-top:22px;
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-head h2{
+  font-size:17px;
+  color:var(--green-dark);
+}
+
+.section-head button{
+  background:transparent;
+  color:var(--green);
+  font-size:12px;
+  font-weight:700;
+}
+
+/* QUICK STATS */
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.stat{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:23px;
+  padding:17px;
+  box-shadow:var(--shadow);
+  min-height:132px;
+  position:relative;
+  overflow:hidden;
+}
+
+.stat-icon{
+  width:38px;
+  height:38px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  background:var(--green-light);
+  margin-bottom:13px;
+}
+
+.stat:nth-child(2) .stat-icon{
+  background:var(--peach-light);
+}
+
+.stat:nth-child(3) .stat-icon{
+  background:#ece5c5;
+}
+
+.stat:nth-child(4) .stat-icon{
+  background:#e4ddd2;
+}
+
+.stat-name{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.stat-value{
+  margin-top:3px;
+  font-size:19px;
+  font-weight:800;
+  color:var(--text);
+}
+
+.stat-target{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+/* GOALS */
+.goal-card{
+  background:var(--white);
+  border-radius:25px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.goal{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.goal:last-child{
+  border-bottom:0;
+}
+
+.check{
+  width:29px;
+  height:29px;
+  border-radius:10px;
+  background:var(--cream2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:transparent;
+  font-size:15px;
+  font-weight:bold;
+  flex-shrink:0;
+}
+
+.goal.done .check{
+  background:var(--green-dark);
+  color:white;
+}
+
+.goal-text{
+  flex:1;
+}
+
+.goal-text strong{
+  display:block;
+  font-size:13px;
+}
+
+.goal-text span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:2px;
+}
+
+/* WELLNESS */
+.wellness{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding-bottom:4px;
+}
+
+.wellness::-webkit-scrollbar{
+  display:none;
+}
+
+.well-card{
+  min-width:145px;
+  background:var(--green-dark);
+  color:white;
+  padding:17px;
+  border-radius:24px;
+}
+
+.well-card:nth-child(2){
+  background:#a8836e;
+}
+
+.well-card:nth-child(3){
+  background:#7b8762;
+}
+
+.well-icon{
+  font-size:22px;
+}
+
+.well-card strong{
+  display:block;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.well-card span{
+  display:block;
+  margin-top:5px;
+  font-size:10px;
+  opacity:.8;
+}
+
+/* WATER PAGE */
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.page-title{
+  padding:28px 20px 15px;
+}
+
+.page-title small{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.page-title h1{
+  color:var(--green-dark);
+  font-size:26px;
+  margin-top:5px;
+}
+
+.big-water{
+  margin:5px 20px 18px;
+  background:var(--green-light);
+  border-radius:30px;
+  padding:25px;
+  text-align:center;
+}
+
+.water-number{
+  font-size:43px;
+  font-weight:900;
+  color:var(--green-dark);
+}
+
+.water-label{
+  color:#64776a;
+  font-size:12px;
+}
+
+.water-bar{
+  height:10px;
+  background:rgba(41,77,56,.1);
+  border-radius:20px;
+  margin:20px 0 8px;
+  overflow:hidden;
+}
+
+.water-fill{
+  height:100%;
+  width:0%;
+  background:var(--green-dark);
+  border-radius:20px;
+  transition:.3s;
+}
+
+.water-target{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.water-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding:0 20px;
+}
+
+.action-btn{
+  background:var(--white);
+  padding:17px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  color:var(--green-dark);
+  font-weight:800;
+}
+
+.action-btn:active{
+  transform:scale(.97);
+}
+
+/* ACTIVITY */
+.activity-card{
+  margin:0 20px 12px;
+  padding:20px;
+  background:var(--white);
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.activity-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.activity-left{
+  display:flex;
+  gap:13px;
+  align-items:center;
+}
+
+.activity-circle{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--green-light);
+  font-size:21px;
+}
+
+.activity-left strong{
+  display:block;
+  font-size:14px;
+}
+
+.activity-left span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:3px;
+}
+
+.activity-value{
+  font-size:17px;
+  font-weight:800;
+  color:var(--green-dark);
+}
+
+/* INSIGHTS */
+.chart-card{
+  margin:0 20px;
+  padding:20px;
+  background:var(--white);
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.chart-title{
+  font-size:14px;
+  font-weight:800;
+  color:var(--green-dark);
+}
+
+.chart{
+  height:155px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:25px;
+  padding-top:10px;
+}
+
+.bar-wrap{
+  height:100%;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  gap:7px;
+}
+
+.bar{
+  width:100%;
+  max-width:28px;
+  background:var(--green);
+  border-radius:9px 9px 4px 4px;
+  min-height:10px;
+}
+
+.bar-day{
+  font-size:9px;
+  color:var(--muted);
+}
+
+/* PROFILE */
+.profile-card{
+  margin:0 20px;
+  background:var(--white);
+  border-radius:28px;
+  padding:25px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.avatar{
+  width:75px;
+  height:75px;
+  margin:auto;
+  border-radius:25px;
+  background:var(--green-dark);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  font-weight:900;
+}
+
+.profile-card h2{
+  margin-top:13px;
+  font-size:19px;
+  color:var(--green-dark);
+}
+
+.profile-card p{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.profile-grid{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
+
+.profile-stat{
+  padding:12px 5px;
+  border-radius:16px;
+  background:var(--cream);
+}
+
+.profile-stat strong{
+  display:block;
+  font-size:15px;
+}
+
+.profile-stat span{
+  font-size:9px;
+  color:var(--muted);
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 28px);
+  max-width:490px;
+  height:70px;
+  background:rgba(255,253,248,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(41,77,56,.08);
+  border-radius:25px;
+  box-shadow:0 15px 45px rgba(41,77,56,.14);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  z-index:100;
+}
+
+.nav-item{
+  background:transparent;
+  color:#929b94;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  font-size:9px;
+  font-weight:700;
+}
+
+.nav-icon{
+  width:35px;
+  height:30px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.nav-item.active{
+  color:var(--green-dark);
+}
+
+.nav-item.active .nav-icon{
+  background:var(--green-light);
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:98px;
+  transform:translate(-50%,20px);
+  background:var(--green-dark);
+  color:white;
+  padding:11px 17px;
+  border-radius:15px;
+  font-size:11px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:200;
+  white-space:nowrap;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* DESKTOP */
+@media(min-width:700px){
+  body{
+    padding:25px 0;
+  }
+
+  .app{
+    background:var(--cream);
+    border-radius:35px;
+    box-shadow:0 20px 70px rgba(41,77,56,.08);
+    overflow:hidden;
+  }
+
+  .bottom-nav{
+    position:fixed;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HOME -->
+  <section class="page active" id="homePage">
+
+    <div class="top">
+      <div class="greeting">
+        <small>GOOD MORNING 🌿</small>
+        <h1>Hello, Aung</h1>
+      </div>
+
+      <button class="profile-btn" onclick="showPage('profile')">
+        A
+      </button>
+    </div>
+
+    <div class="hero">
+
+      <div class="hero-top">
+        <div class="hero-label">YOUR HEALTH TODAY</div>
+        <div class="hero-title">Feel good. Live well.</div>
+        <div class="hero-sub">Small healthy habits create big changes</div>
+      </div>
+
+      <div class="score-wrap">
+        <div class="score-ring">
+          <div class="score-number">82</div>
+        </div>
+
+        <div class="score-info">
+          <strong>Great progress today</strong>
+          <span>You've completed most of your daily goals</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-head">
+        <h2>Today's Health</h2>
+        <button onclick="showPage('insights')">View insights</button>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-icon">💧</div>
+          <div class="stat-name">Water</div>
+          <div class="stat-value" id="homeWater">0 / 8</div>
+          <div class="stat-target">glasses today</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">🚶</div>
+          <div class="stat-name">Steps</div>
+          <div class="stat-value">6,240</div>
+          <div class="stat-target">goal 8,000</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">😴</div>
+          <div class="stat-name">Sleep</div>
+          <div class="stat-value">7h 20m</div>
+          <div class="stat-target">goal 8h</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">⚖️</div>
+          <div class="stat-name">Weight</div>
+          <div class="stat-value">68.5 kg</div>
+          <div class="stat-target">this week</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="section-head">
+        <h2>Daily Goals</h2>
+        <button onclick="completeAll()">Complete all</button>
+      </div>
+
+      <div class="goal-card">
+
+        <div class="goal done" onclick="toggleGoal(this)">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Drink enough water</strong>
+            <span>8 glasses per day</span>
+          </div>
+        </div>
+
+        <div class="goal" onclick="toggleGoal(this)">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Walk 8,000 steps</strong>
+            <span>Keep your body moving</span>
+          </div>
+        </div>
+
+        <div class="goal done" onclick="toggleGoal(this)">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>30 minutes exercise</strong>
+            <span>Move your body today</span>
+          </div>
+        </div>
+
+        <div class="goal" onclick="toggleGoal(this)">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Sleep 8 hours</strong>
+            <span>Give your body enough rest</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="section-head">
+        <h2>Wellness</h2>
+      </div>
+
+      <div class="wellness">
+
+        <div class="well-card">
+          <div class="well-icon">🧘</div>
+          <strong>Take a breath</strong>
+          <span>2 minute breathing</span>
+        </div>
+
+        <div class="well-card">
+          <div class="well-icon">🌿</div>
+          <strong>Relax your mind</strong>
+          <span>Mindful moment</span>
+        </div>
+
+        <div class="well-card">
+          <div class="well-icon">☀️</div>
+          <strong>Morning energy</strong>
+          <span>Start your day well</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ACTIVITY -->
+  <section class="page" id="activityPage">
+
+    <div class="page-title">
+      <small>MOVE YOUR BODY</small>
+      <h1>Activity</h1>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-row">
+        <div class="activity-left">
+          <div class="activity-circle">🚶</div>
+          <div>
+            <strong>Steps</strong>
+            <span>Daily goal 8,000</span>
+          </div>
+        </div>
+        <div class="activity-value">6,240</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-row">
+        <div class="activity-left">
+          <div class="activity-circle">🏃</div>
+          <div>
+            <strong>Running</strong>
+            <span>Today's activity</span>
+          </div>
+        </div>
+        <div class="activity-value">2.4 km</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-row">
+        <div class="activity-left">
+          <div class="activity-circle">🔥</div>
+          <div>
+            <strong>Calories</strong>
+            <span>Estimated burn</span>
+          </div>
+        </div>
+        <div class="activity-value">384 kcal</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-row">
+        <div class="activity-left">
+          <div class="activity-circle">⏱️</div>
+          <div>
+            <strong>Active Time</strong>
+            <span>Total movement</span>
+          </div>
+        </div>
+        <div class="activity-value">42 min</div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- NUTRITION -->
+  <section class="page" id="nutritionPage">
+
+    <div class="page-title">
+      <small>FUEL YOUR BODY</small>
+      <h1>Nutrition</h1>
+    </div>
+
+    <div class="big-water">
+
+      <div class="water-number" id="waterNumber">0</div>
+      <div class="water-label">glasses of water today</div>
+
+      <div class="water-bar">
+        <div class="water-fill" id="waterFill"></div>
+      </div>
+
+      <div class="water-target">
+        <span>0 glasses</span>
+        <span>Goal 8</span>
+      </div>
+
+    </div>
+
+    <div class="water-actions">
+
+      <button class="action-btn" onclick="addWater()">
+        💧 Add 1 Glass
+      </button>
+
+      <button class="action-btn" onclick="resetWater()">
+        ↺ Reset
+      </button>
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-head">
+        <h2>Today's Meals</h2>
+      </div>
+
+      <div class="activity-card" style="margin:0 0 12px">
+        <div class="activity-row">
+          <div class="activity-left">
+            <div class="activity-circle">🌅</div>
+            <div>
+              <strong>Breakfast</strong>
+              <span>Add your meal</span>
+            </div>
+          </div>
+          <div class="activity-value">＋</div>
+        </div>
+      </div>
+
+      <div class="activity-card" style="margin:0 0 12px">
+        <div class="activity-row">
+          <div class="activity-left">
+            <div class="activity-circle">☀️</div>
+            <div>
+              <strong>Lunch</strong>
+              <span>Add your meal</span>
+            </div>
+          </div>
+          <div class="activity-value">＋</div>
+        </div>
+      </div>
+
+      <div class="activity-card" style="margin:0">
+        <div class="activity-row">
+          <div class="activity-left">
+            <div class="activity-circle">🌙</div>
+            <div>
+              <strong>Dinner</strong>
+              <span>Add your meal</span>
+            </div>
+          </div>
+          <div class="activity-value">＋</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INSIGHTS -->
+  <section class="page" id="insightsPage">
+
+    <div class="page-title">
+      <small>YOUR PROGRESS</small>
+      <h1>Insights</h1>
+    </div>
+
+    <div class="chart-card">
+
+      <div class="chart-title">Weekly Activity</div>
+
+      <div class="chart">
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:55%"></div>
+          <div class="bar-day">M</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:72%"></div>
+          <div class="bar-day">T</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:44%"></div>
+          <div class="bar-day">W</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:81%"></div>
+          <div class="bar-day">T</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:63%"></div>
+          <div class="bar-day">F</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:88%"></div>
+          <div class="bar-day">S</div>
+        </div>
+
+        <div class="bar-wrap">
+          <div class="bar" style="height:76%"></div>
+          <div class="bar-day">S</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-head">
+        <h2>Health Summary</h2>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-icon">💧</div>
+          <div class="stat-name">Water</div>
+          <div class="stat-value">72%</div>
+          <div class="stat-target">weekly average</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">🚶</div>
+          <div class="stat-name">Activity</div>
+          <div class="stat-value">81%</div>
+          <div class="stat-target">weekly goal</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">😴</div>
+          <div class="stat-name">Sleep</div>
+          <div class="stat-value">7.4h</div>
+          <div class="stat-target">average</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">❤️</div>
+          <div class="stat-name">Score</div>
+          <div class="stat-value">82</div>
+          <div class="stat-target">health score</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROFILE -->
+  <section class="page" id="profilePage">
+
+    <div class="page-title">
+      <small>YOUR PROFILE</small>
+      <h1>Profile</h1>
+    </div>
+
+    <div class="profile-card">
+
+      <div class="avatar">A</div>
+
+      <h2>Aung</h2>
+      <p>Healthy Life Member</p>
+
+      <div class="profile-grid">
+
+        <div class="profile-stat">
+          <strong>42</strong>
+          <span>Age</span>
+        </div>
+
+        <div class="profile-stat">
+          <strong>68.5</strong>
+          <span>Weight kg</span>
+        </div>
+
+        <div class="profile-stat">
+          <strong>170</strong>
+          <span>Height cm</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <div class="goal-card">
+
+        <div class="goal">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Daily Reminders</strong>
+            <span>Water, activity and sleep</span>
+          </div>
+          <span>›</span>
+        </div>
+
+        <div class="goal">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Health Goals</strong>
+            <span>Manage your personal goals</span>
+          </div>
+          <span>›</span>
+        </div>
+
+        <div class="goal">
+          <div class="check">✓</div>
+          <div class="goal-text">
+            <strong>Settings</strong>
+            <span>App preferences</span>
+          </div>
+          <span>›</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+
+  <button class="nav-item active" onclick="showPage('home')">
+    <div class="nav-icon">⌂</div>
+    <span>Home</span>
+  </button>
+
+  <button class="nav-item" onclick="showPage('activity')">
+    <div class="nav-icon">◌</div>
+    <span>Activity</span>
+  </button>
+
+  <button class="nav-item" onclick="showPage('nutrition')">
+    <div class="nav-icon">♡</div>
+    <span>Nutrition</span>
+  </button>
+
+  <button class="nav-item" onclick="showPage('insights')">
+    <div class="nav-icon">◒</div>
+    <span>Insights</span>
+  </button>
+
+  <button class="nav-item" onclick="showPage('profile')">
+    <div class="nav-icon">●</div>
+    <span>Profile</span>
+  </button>
+
+</nav>
+
+
+<div class="toast" id="toast">Updated</div>
+
+
+<script>
+
+let water = Number(localStorage.getItem("healthy_water") || 0);
+
+function showPage(page){
+
+  const pages = {
+    home:"homePage",
+    activity:"activityPage",
+    nutrition:"nutritionPage",
+    insights:"insightsPage",
+    profile:"profilePage"
+  };
+
+  Object.values(pages).forEach(id=>{
+    document.getElementById(id).classList.remove("active");
+  });
+
+  document.getElementById(pages[page]).classList.add("active");
+
+  document.querySelectorAll(".nav-item").forEach(item=>{
+    item.classList.remove("active");
+  });
+
+  const index = {
+    home:0,
+    activity:1,
+    nutrition:2,
+    insights:3,
+    profile:4
+  };
+
+  document.querySelectorAll(".nav-item")[index[page]]
+    .classList.add("active");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  if(page === "nutrition"){
+    updateWater();
+  }
+}
+
+
+function updateWater(){
+
+  const number = document.getElementById("waterNumber");
+  const fill = document.getElementById("waterFill");
+
+  if(!number || !fill) return;
+
+  number.textContent = water;
+
+  const percent = Math.min((water / 8) * 100,100);
+
+  fill.style.width = percent + "%";
+
+  const home = document.getElementById("homeWater");
+
+  if(home){
+    home.textContent = water + " / 8";
+  }
+}
+
+
+function addWater(){
+
+  if(water < 8){
+    water++;
+    localStorage.setItem("healthy_water",water);
+    updateWater();
+    showToast("💧 Water added");
+  }else{
+    showToast("Daily water goal completed");
+  }
+}
+
+
+function resetWater(){
+
+  water = 0;
+
+  localStorage.setItem("healthy_water",water);
+
+  updateWater();
+
+  showToast("Water reset");
+}
+
+
+function toggleGoal(element){
+
+  element.classList.toggle("done");
+
+  if(element.classList.contains("done")){
+    showToast("✓ Goal completed");
+  }else{
+    showToast("Goal reopened");
+  }
+}
+
+
+function completeAll(){
+
+  document.querySelectorAll(".goal").forEach(goal=>{
+    goal.classList.add("done");
+  });
+
+  showToast("✓ All goals completed");
+}
+
+
+function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },1800);
+}
+
+
+updateWater();
+
+</script>
+
+</body>
+</html>
